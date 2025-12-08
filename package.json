@@ -1,0 +1,26 @@
+{
+  "name": "ex18",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "vite",
+    "build": "vite build"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "vite": "^7.2.7"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^7.1.0",
+    "@fortawesome/free-solid-svg-icons": "^7.1.0",
+    "@supabase/supabase-js": "^2.87.0",
+    "ag-grid-community": "^34.3.1",
+    "chart.js": "^4.5.1",
+    "survey-core": "^2.4.1",
+    "survey-js-ui": "^2.4.1"
+  }
+}

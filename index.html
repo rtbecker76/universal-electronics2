@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>Universal Electronics</title>
+  <link rel="icon" type="image/png" href="./src/assets/logo.png">
+  <link rel="stylesheet" href="./src/css/main.css">
+
+</head>
+
+<body>
+
+  <!-- Dialogs -->
+
+  <dialog class="dialog" id="new-update-vendor-dialog">
+    <h3 id="vendor-dialog-title">New Vendor</h3>
+    <div id="vendor-form" class="form"></div>
+    <button type="button" id="vendor-submit-button" class="text-button">Insert</button>
+    <button type="button" id="vendor-cancel-button" class="text-button">Cancel</button>
+  </dialog>
+
+  <dialog class="dialog" id="new-update-customer-dialog">
+    <h3 id="customer-dialog-title">Update Customer</h3>
+    <div id="customer-form" class="form"></div>
+    <button type="button" id="customer-submit-button" class="text-button">Update</button>
+    <button type="button" id="customer-cancel-button" class="text-button">Cancel</button>
+  </dialog>
+
+  <dialog class="dialog" id="new-update-product-dialog">
+    <h3 id="product-dialog-title">New Product</h3>
+    <div id="product-form" class="form"></div>
+    <button type="button" id="product-submit-button" class="text-button">Insert</button>
+    <button type="button" id="product-cancel-button" class="text-button">Cancel</button>
+  </dialog>
+
+  <dialog class="dialog" id="delete-vendor-dialog">
+    <h3>Delete Vendor</h3>
+    <p id="delete-vendor-message"></p>
+    <button type="button" id="delete-vendor-submit-button" class="text-button">Delete</button>
+    <button type="button" id="delete-vendor-cancel-button" class="text-button">Cancel</button>
+  </dialog>
+
+  <dialog class="dialog" id="delete-customer-dialog">
+    <h3>Delete Customer</h3>
+    <p id="delete-customer-message"></p>
+    <button type="button" id="delete-customer-submit-button" class="text-button">Delete</button>
+    <button type="button" id="delete-customer-cancel-button" class="text-button">Cancel</button>
+  </dialog>
+
+  <dialog class="dialog" id="delete-product-dialog">
+    <h3>Delete Product</h3>
+    <p id="delete-product-message"></p>
+    <button type="button" id="delete-product-submit-button" class="text-button">Delete</button>
+    <button type="button" id="delete-product-cancel-button" class="text-button">Cancel</button>
+  </dialog>
+
+  <dialog class="dialog" id="purchase-dialog">
+    <h3>Confirm Purchase</h3>
+    <p id="purchase-message"></p>
+    <button type="button" id="purchase-submit-button" class="text-button">Confirm</button>
+    <button type="button" id="purchase-cancel-button" class="text-button">Cancel</button>
+  </dialog>
+
+  <dialog class="dialog" id="error-dialog">
+    <h3>Error</h3>
+    <p id="error-message"></p>
+    <button type="button" id="error-close-button" class="text-button">Close</button>
+  </dialog>
+
+  <!-- Header -->
+
+  <div id="header">
+    <img id="logo" src="./src/assets/logo.png" />
+    <div id="titleContainer">
+      <div id="title"> Universal Electronics</div>
+      <div id="subtitle"></div>
+    </div>
+  </div>
+
+  <div id="main-container">
+
+    <!-- Menu Bar -->
+
+    <div id="menu-bar">
+      <div id="current-user-email"></div>
+      <button id="data-button" class="text-button nav-button" style="margin-left:auto; display:none">Data
+        Maintenance</button>
+      <button id="charts-button" class="text-button nav-button" style="margin-left:auto; display:none">Charts</button>
+      <button id="orders-button" class="text-button nav-button" style="margin-left:auto; display:none">Place an
+        Order</button>
+      <button id="history-button" class="text-button nav-button" style="margin-left:auto; display:none">Order
+        History</button>
+      <button id="logout-button" class="text-button nav-button">Log Out</button>
+    </div>
+
+    <!-- Login -->
+
+    <form id="login-container">
+      <label>Email</label>
+      <input id="email" />
+      <label>Password</label>
+      <input id="password" type="password" />
+      <button id='login' class="text-button" type="button" disabled style="margin-top:10px;">Log In</button>
+    </form>
+
+    <!-- Admin - Data Maintenance screen -->
+
+    <div id="admin-data-container" class="horizontal-container" style="display:none">
+      <div id="data-customer-container" class="vertical-container">
+        <div class="toolbar">
+          <b>Customers</b>
+          <button id="delete-customer-button" class="icon-button" disabled title="Delete Customer">
+            <i class="fa fa-trash"></i>
+          </button>
+          <button id="update-customer-button" class="icon-button" disabled title="Update Customer">
+            <i class="fa fa-pencil"></i>
+          </button>
+        </div>
+        <div id="customer-admin-grid" class="grid"></div>
+      </div>
+      <div id="data-vendor-product-container" class="vertical-container">
+        <div id="data-vendor-container" class="vertical-container">
+          <div class="toolbar">
+            <b>Vendors</b>
+            <button type="button" id="delete-vendor-button" class="icon-button" disabled title="Delete Vendor">
+              <i class="fa fa-trash"></i>
+            </button>
+            <button type="button" id="update-vendor-button" class="icon-button" disabled title="Update Vendor">
+              <i class="fa fa-pencil"></i></button>
+            <button type="button" id="new-vendor-button" class="icon-button" title="Add Vendor">
+              <span class="fa fa-plus"></span>
+            </button>
+          </div>
+          <div id="vendor-admin-grid" class="grid"></div>
+        </div>
+        <div id="data-product-container" class="vertical-container">
+          <div class="toolbar">
+            <b>Products</b>
+            <button type="button" id="delete-product-button" class="icon-button" disabled title="Delete Product">
+              <i class="fa fa-trash"></i>
+            </button>
+            <button type="button" id="update-product-button" class="icon-button" disabled title="Update Product">
+              <i class="fa fa-pencil"></i>
+            </button>
+            <button type="button" id="new-product-button" class="icon-button" title="Add Product">
+              <span class="fa fa-plus"></span>
+            </button>
+          </div>
+          <div id="product-admin-grid" class="grid"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Admin - Charts screen -->
+
+    <div id="admin-charts-container" class="horizontal-container" style="display:none">
+      <div id="charts-left-side" class="vertical-container">
+        <div id="charts1-container" class="vertical-container">
+          Product Inventory
+          <canvas id="chart1" />
+        </div>
+        <div id="charts2-container" class="vertical-container">
+          Total Revenue by Month 2025
+          <canvas id="chart2" />
+        </div>
+      </div>
+      <div id="charts3-container" class="vertical-container">
+        Total Revenue by Product
+        <canvas id="chart3" />
+      </div>
+    </div>
+
+    <!-- Customer - Ordering screen -->
+
+    <div id="customer-order-container" class="horizontal-container" style="display:none">
+      <div id="order-product-container" class="vertical-container">
+        <div id="products-grid" class="grid"></div>
+      </div>
+      <div id="order-current-container" class="vertical-container">
+        <div id="order-details-new-grid" class="grid"></div>
+        <div id="total-cost-line">
+          <div>Total Cost</div>
+          <div id="order-total-cost">
+            $0.00
+          </div>
+          <button id="purchase-button" disabled class='text-button'>Confirm Purchase
+        </div>
+      </div>
+    </div>
+
+    <!-- Customer - Order History screen -->
+
+    <div id="customer-order-history-container" class="horizontal-container" style="display:flex">
+      <div id="order-history-container" class="vertical-container">
+        <div class="toolbar">
+          <b>Past Orders</b>
+        </div>
+        <div id="orders-history-grid" class="grid"></div>
+      </div>
+      <div id="order-history-detail-container" class="vertical-container">
+        <div class="toolbar">
+          <b>Order Details</b>
+        </div>
+        <div id="order-details-history-grid" class="grid"></div>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    const SUPABASE_URL = 'https://xgpogogdndjntlsqqlgs.supabase.co';
+    const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InhncG9nb2dkbmRqbnRsc3FxbGdzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTk4NjY4NzEsImV4cCI6MjA3NTQ0Mjg3MX0.reg8dL2AIrSjBnmj74LrPhFDUrcC0RNLVdwmZfys_wM'
+  </script>
+  <script type="module" src="./src/js/main"></script>
+
+</body>
+
+</html>
